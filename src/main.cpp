@@ -18,17 +18,17 @@ int main()
 
     while (true)
     {
-        if(!bn::keypad::a_pressed() && !bn::keypad::b_pressed()){
+        if(!bn::keypad::a_held() && !bn::keypad::b_held()){
              bn::backdrop::set_color(bn::color(20, 20, 31));
         }
-        if(bn::keypad::a_pressed() && bn::keypad::b_pressed()){
+        if(bn::keypad::any_held() && bn::keypad::b_held()){
             bn::backdrop::set_color(bn::color(aRed-bRed,bGreen-aGreen,bBlue-aBlue));
         }
-        if (bn::keypad::a_pressed())
+        if (bn::keypad::a_held()&& !bn::keypad::b_held())
         {
             bn::backdrop::set_color(bn::color(aRed, aGreen, aBlue));
         }
-        if (bn::keypad::b_pressed())
+        if (bn::keypad::b_held()&& !bn::keypad::a_held())
         {
             bn::backdrop::set_color(bn::color(bRed, bGreen, bBlue));
         }
