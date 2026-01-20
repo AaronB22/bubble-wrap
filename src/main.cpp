@@ -2,11 +2,23 @@
 #include <bn_color.h>
 #include <bn_core.h>
 #include <bn_keypad.h>
+#include <bn_sprite_ptr.h>
+#include <bn_sprite_items_dot.h>
+#include <bn_log.h>
+#include <bn_vector.h>
 
 int main()
 {
     bn::core::init();
     bn::backdrop::set_color(bn::color(20, 20, 31));
+    bn::sprite_ptr myCircle = bn::sprite_items::dot.create_sprite(20,50);
+    bn::sprite_ptr myCircle1 = bn::sprite_items::dot.create_sprite(40,50);
+
+    bn::vector<bn::sprite_ptr, 10> circles={};
+     for(int x=-40; x<=40; x+=10){
+        BN_LOG("x value",x);
+        circles.push_back(bn::sprite_items::dot.create_sprite(x, 40));
+     }
 
     int aRed=31;
     int aGreen=10;
