@@ -29,6 +29,7 @@ int main()
     int bRed = 10;
     int bGreen = 20;
     int bBlue = 31;
+    circles[0].set_scale(1.8);
 
     while (true)
     {
@@ -51,6 +52,17 @@ int main()
         {
 
             bn::backdrop::set_color(bn::color(bRed, bGreen, bBlue));
+        }
+        for(int i=0; i<9;i++){
+            if(i%2==0){
+                circles[i].set_horizontal_scale(1.5);
+            }
+            if(i%2==1){
+                circles[i].set_vertical_scale(2.1);
+            }
+            if(i%3==0){
+                circles2[i].set_scale(2.1);
+            }
         }
         bn::core::update();
     }
